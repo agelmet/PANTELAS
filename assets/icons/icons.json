@@ -1,0 +1,16 @@
+{
+ "source": {
+  "kind": "file",
+  "ref": "assets/img/gp-and-gp-icon.svg"
+ },
+ "source_md5": "026f5fd33412a24e291707d7f1dd9797",
+ "version": "3084002b",
+ "tile": null,
+ "crop": null,
+ "header": [
+  "inline",
+  "index.html",
+  "f2e92c56b09c08786b9fdd0c95c151b7"
+ ],
+ "made": "2026-11-20"
+}
