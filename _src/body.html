@@ -118,6 +118,7 @@
      <ul>
       <li data-en="Business meetings and appointments">Επαγγελματικά ραντεβού και συναντήσεις</li>
       <li data-en="Weddings, events, special occasions">Γάμοι, εκδηλώσεις, ειδικές περιστάσεις</li>
+      <li data-en="For weddings only: Ferrari, Porsche Panamera, Audi Q8 and vintage cars">Μόνο για γάμους: Ferrari, Porsche Panamera, Audi Q8 και αυτοκίνητα αντίκες</li>
       <li data-en="Private car with driver, from 1 hour up to 7 days">Ιδιωτικό αυτοκίνητο με οδηγό, από 1 ώρα έως 7 ημέρες</li>
      </ul>
      <a class="more" href="#kratisi" data-svc="vip"><span data-en="Ask for a VIP car">Ζητήστε VIP αυτοκίνητο</span> <i>→</i></a>
@@ -186,7 +187,8 @@
    <span class="kick rvt" data-en="Weddings &amp; events">Γάμοι &amp; εκδηλώσεις</span>
    <h2 class="rvt" data-en="A wedding in Thessaloniki? <em>The car is booked.</em>">Γάμος στη Θεσσαλονίκη; <em>Το αυτοκίνητο είναι κλεισμένο.</em></h2>
    <p class="rvt" data-en="A reserved car with driver for the couple, the guests or the whole day — in Athens or wherever the celebration is.">Αγκαζέ αυτοκίνητο με οδηγό για το ζευγάρι, τους καλεσμένους ή για όλη τη μέρα — στην Αθήνα ή όπου γίνεται η γιορτή.</p>
-   <div class="pts rvt"><span data-en="Reserved for the day">Αγκαζέ για όλη τη μέρα</span><span data-en="VIP Mercedes · BMW · Audi">VIP Mercedes · BMW · Audi</span><span data-en="In and outside Athens">Μέσα και έξω από την Αθήνα</span></div>
+   <p class="rvt" data-en="And for the big day: super-luxury cars — Ferrari, Porsche Panamera, Audi Q8 — exclusively for weddings, and vintage classic cars.">Και για τη μεγάλη μέρα: υπερπολυτελή αυτοκίνητα — Ferrari, Porsche Panamera, Audi Q8 — αποκλειστικά για γάμους, και παλιά αυτοκίνητα αντίκες.</p>
+   <div class="pts rvt"><span data-en="Reserved for the day">Αγκαζέ για όλη τη μέρα</span><span data-en="VIP Mercedes · BMW · Audi">VIP Mercedes · BMW · Audi</span><span data-en="Ferrari · Panamera · Q8 — weddings only">Ferrari · Panamera · Q8 — μόνο για γάμους</span><span data-en="Vintage cars">Αυτοκίνητα αντίκες</span><span data-en="In and outside Athens">Μέσα και έξω από την Αθήνα</span></div>
    <a class="btn btn-g rvt" href="#kratisi" data-svc="event"><span data-en="Ask for your date">Ρωτήστε για την ημερομηνία σας</span>{{i:arrow}}</a>
   </div>
  </div>
@@ -233,6 +235,9 @@
      <label class="fi"><span data-en="Date">Ημερομηνία</span><input id="f-date" type="date"></label>
      <label class="fi"><span data-en="Time">Ώρα</span><input id="f-time" type="time"></label>
      <label class="fi"><span data-en="Passengers">Επιβάτες</span><select id="f-pax"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label>
+    </div>
+    <div class="fg" id="g-car" hidden><span class="flb" data-en="Which car for the wedding?">Ποιο αυτοκίνητο για τον γάμο;</span>
+     <div class="chips" id="car"><button type="button" data-v="vip" class="on" data-en="VIP Mercedes · BMW · Audi">VIP Mercedes · BMW · Audi</button><button type="button" data-v="ferrari" data-en="Ferrari">Ferrari</button><button type="button" data-v="panamera" data-en="Porsche Panamera">Porsche Panamera</button><button type="button" data-v="q8" data-en="Audi Q8">Audi Q8</button><button type="button" data-v="antique" data-en="Vintage car">Αυτοκίνητο αντίκα</button></div>
     </div>
     <div class="fg" id="g-days" hidden><span class="flb" data-en="For how long? (1 hour – 7 days)">Για πόσο; (1 ώρα – 7 ημέρες)</span>
      <div class="chips" id="days"><button type="button" data-v="h" data-en="By the hour">Ανά ώρα</button><button type="button" data-v="1" class="on" data-en="Day trip · 1 day">Μονοήμερο</button><button type="button" data-v="2" data-en="2 days">Διήμερο</button><button type="button" data-v="3" data-en="3 days">Τριήμερο</button><button type="button" data-v="4" data-en="4 days">4 ημέρες</button><button type="button" data-v="5" data-en="5 days">5 ημέρες</button><button type="button" data-v="6" data-en="6 days">6 ημέρες</button><button type="button" data-v="7" data-en="7 days">7 ημέρες</button></div>
@@ -308,7 +313,7 @@
     <h3 data-en="At a glance">Με μια ματιά</h3>
     <dl>
      <dt data-en="Who">Ποιοι</dt><dd data-en="GP &amp; GP — taxi and VIP transfers with driver">GP &amp; GP — ταξί και VIP μεταφορές με οδηγό</dd>
-     <dt data-en="Cars">Αυτοκίνητα</dt><dd data-en="Taxi, 7-seater (up to 6 passengers), VIP Mercedes · BMW · Audi">Ταξί, επταθέσιο (έως 6 επιβάτες), VIP Mercedes · BMW · Audi</dd>
+     <dt data-en="Cars">Αυτοκίνητα</dt><dd data-en="Taxi, 7-seater (up to 6 passengers), VIP Mercedes · BMW · Audi; for weddings Ferrari, Porsche Panamera, Audi Q8 and vintage cars">Ταξί, επταθέσιο (έως 6 επιβάτες), VIP Mercedes · BMW · Audi · για γάμους Ferrari, Porsche Panamera, Audi Q8 και αντίκες</dd>
      <dt data-en="Where">Πού</dt><dd data-en="Athens, Nea Smyrni, Piraeus, all of Attica — and anywhere in Greece">Αθήνα, Νέα Σμύρνη, Πειραιάς, όλη η Αττική — και σε όλη την Ελλάδα</dd>
      <dt data-en="How long">Διάρκεια</dt><dd data-en="One ride, or hire with driver from 1 hour to 7 days">Μία διαδρομή ή ενοικίαση με οδηγό από 1 ώρα έως 7 ημέρες</dd>
      <dt data-en="Booking">Κράτηση</dt><dd>{{TEL1F}} · {{TEL2F}} · Viber · WhatsApp</dd>
