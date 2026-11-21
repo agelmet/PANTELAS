@@ -1,6 +1,6 @@
 (function(){
 var D=document,H=D.documentElement,RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
-var T={en:{t:'Taxi & VIP chauffeur transfers in Athens | GP & GP',d:'GP & GP: taxi, a 7-seater for up to 6 passengers and VIP Mercedes, BMW, Audi — always with a driver. Athens, Nea Smyrni, Piraeus, airports, day trips and multi-day.'}};
+var T={en:{t:'Taxi & VIP chauffeur transfers in Athens | GP & GP',d:'GP & GP: taxi, a 7-seater for up to 6 passengers and VIP Mercedes, BMW, Audi — always with a driver. Athens, Nea Smyrni, Piraeus, airports, day trips, by the hour or up to 7 days.'}};
 var lang='el';try{lang=localStorage.getItem('gp-lang')||'el'}catch(e){}
 var TEL='{{TEL1}}',TEL2='{{TEL2}}',M1='{{MAIL1}}',M2='{{MAIL2}}';
 /* ---- language ---- */
@@ -65,16 +65,16 @@ addEventListener('keydown',function(e){if(e.key==='Escape'){if(!lb.hidden)closeL
 /* ---- FAQ: one open ---- */
 var dts=[].slice.call(D.querySelectorAll('#faq details'));dts.forEach(function(d){d.addEventListener('toggle',function(){if(d.open)dts.forEach(function(o){if(o!==d)o.open=false})})});
 /* ---- booking composer ---- */
-var svc='taxi',days='1',L={el:{taxi:'Ταξί',seven:'Επταθέσιο',vip:'VIP αυτοκίνητο',days:'Αυτοκίνητο με οδηγό για μέρες',event:'Γάμος / εκδήλωση',d:' ημέρ',hi:'Καλησπέρα σας! Θα ήθελα να κλείσω:',from:'Από',to:'Προς',when:'Πότε',pax:'Επιβάτες',dd:'Διάρκεια',note:'Σημείωση',cp:'Το μήνυμα αντιγράφηκε — κάντε επικόλληση στο Viber.',subj:'Κράτηση διαδρομής'},
- en:{taxi:'Taxi',seven:'7-seater',vip:'VIP car',days:'Car with driver for days',event:'Wedding / event',d:' day',hi:'Hello! I would like to book:',from:'From',to:'To',when:'When',pax:'Passengers',dd:'Duration',note:'Note',cp:'Message copied — paste it in Viber.',subj:'Ride booking'}};
+var svc='taxi',days='1',L={el:{taxi:'Ταξί',seven:'Επταθέσιο',vip:'VIP αυτοκίνητο',days:'Ενοικίαση με οδηγό',event:'Γάμος / εκδήλωση',d:' ημέρ',hi:'Καλησπέρα σας! Θα ήθελα να κλείσω:',from:'Από',to:'Προς',when:'Πότε',pax:'Επιβάτες',dd:'Διάρκεια',note:'Σημείωση',cp:'Το μήνυμα αντιγράφηκε — κάντε επικόλληση στο Viber.',subj:'Κράτηση διαδρομής'},
+ en:{taxi:'Taxi',seven:'7-seater',vip:'VIP car',days:'Hire with driver',event:'Wedding / event',d:' day',hi:'Hello! I would like to book:',from:'From',to:'To',when:'When',pax:'Passengers',dd:'Duration',note:'Note',cp:'Message copied — paste it in Viber.',subj:'Ride booking'}};
 function $(i){return D.getElementById(i)}
 function chips(id,cb){var w=$(id);w.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;w.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});cb(b.dataset.v)})}
-function setSvc(v){svc=v;$('svcs').querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x.dataset.v===v)});$('g-days').hidden=!(v==='days'||v==='vip'||v==='event');ticket()}
-chips('svcs',setSvc);chips('days',function(v){days=v;ticket()});
+function setSvc(v){svc=v;$('svcs').querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x.dataset.v===v)});$('g-days').hidden=!(v==='days'||v==='seven'||v==='vip'||v==='event');ticket()}
+chips('svcs',setSvc);chips('days',function(v){days=v;$('g-hrs').hidden=v!=='h';ticket()});$('f-hrs').addEventListener('change',ticket);
 D.querySelectorAll('[data-svc]').forEach(function(a){a.addEventListener('click',function(){setSvc(a.dataset.svc)})});
 ['f-from','f-to','f-date','f-time','f-pax','f-note'].forEach(function(i){$(i).addEventListener('input',ticket)});
 function fmtDate(v){if(!v)return'';var p=v.split('-');return p[2]+'/'+p[1]+'/'+p[0]}
-function dur(){if($('g-days').hidden)return'';var t=L[lang];return days+(lang==='el'?(days==='1'?' ημέρα':' ημέρες'):(days==='1'?' day':' days'))}
+function dur(){if($('g-days').hidden)return'';var t=L[lang];if(days==='h'){var h=$('f-hrs').value;return h+(lang==='el'?(h==='1'?' ώρα':' ώρες'):(h==='1'?' hour':' hours'))}return days+(lang==='el'?(days==='1'?' ημέρα':' ημέρες'):(days==='1'?' day':' days'))}
 function set(id,v){var e=$(id);e.textContent=v||'—';e.classList.toggle('e',!v)}
 function ticket(){if(!$('t-svc'))return;var t=L[lang];var s=t[svc]+(dur()?' · '+dur():'');set('t-svc',s);set('t-from',$('f-from').value.trim());set('t-to',$('f-to').value.trim());var w=[fmtDate($('f-date').value),$('f-time').value].filter(Boolean).join(' · ');set('t-when',w);set('t-pax',$('f-pax').value)}
 function msg(){var t=L[lang],o=[t.hi,'• '+t[svc]+(dur()?' ('+t.dd+': '+dur()+')':'')];var f=$('f-from').value.trim(),to=$('f-to').value.trim(),w=[fmtDate($('f-date').value),$('f-time').value].filter(Boolean).join(' '),n=$('f-note').value.trim();

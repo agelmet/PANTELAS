@@ -38,8 +38,8 @@ FAQ = [
   'How many people fit in the 7-seater?', 'Up to six passengers, with their luggage. It is ideal for families and groups going to the airport or on day trips.'),
  ('Ποια VIP αυτοκίνητα έχετε;', 'Mercedes, BMW και Audi, πάντα με οδηγό, για επαγγελματικά ραντεβού, εκδηλώσεις, γάμους και ειδικές περιστάσεις.',
   'Which VIP cars do you have?', 'Mercedes, BMW and Audi, always with a driver, for business meetings, events, weddings and special occasions.'),
- ('Μπορώ να κλείσω αυτοκίνητο με οδηγό για πολλές ημέρες;', 'Ναι. Μπορείτε να έχετε ιδιωτικό αυτοκίνητο με τον οδηγό του στη διάθεσή σας για 2, 3 ή 7 ημέρες.',
-  'Can I book a car with driver for several days?', 'Yes. You can have a private car with its driver at your disposal for 2, 3 or 7 days.'),
+ ('Μπορώ να κλείσω αυτοκίνητο με οδηγό για πολλές ημέρες;', 'Ναι. Μπορείτε να έχετε ιδιωτικό αυτοκίνητο με τον οδηγό του στη διάθεσή σας από 1 ώρα έως 7 ημέρες: ανά ώρα, μονοήμερο, διήμερο, τριήμερο ή ως μία εβδομάδα.',
+  'Can I book a car with driver for several days?', 'Yes. You can have a private car with its driver at your disposal from 1 hour up to 7 days: by the hour, for a day, two or three days, or up to a week.'),
  ('Κάνετε διαδρομές εκτός Αθήνας;', 'Ναι. Εκτός από την Αθήνα, τη Νέα Σμύρνη, τον Πειραιά και όλη την Αττική, κάνουμε και μεγάλες διαδρομές — για παράδειγμα αγκαζέ αυτοκίνητο για γάμο στη Θεσσαλονίκη.',
   'Do you travel outside Athens?', 'Yes. Besides Athens, Nea Smyrni, Piraeus and all of Attica, we also do long journeys — for example a reserved car for a wedding in Thessaloniki.'),
  ('Πώς κλείνω μια διαδρομή;', 'Τηλεφωνικά στο 694 222 2752 ή στο 697 281 2233, ή με μήνυμα σε Viber ή WhatsApp. Μπορείτε να ετοιμάσετε το μήνυμα από τη φόρμα «Κράτηση» της σελίδας.',
@@ -73,7 +73,7 @@ def jsonld():
            'contactPoint': [{'@type': 'ContactPoint', 'telephone': TEL1, 'contactType': 'reservations', 'availableLanguage': ['el', 'en']},
                             {'@type': 'ContactPoint', 'telephone': TEL2, 'contactType': 'reservations', 'availableLanguage': ['el', 'en']}],
            'knowsAbout': ['Ταξί Αθήνα', 'Ταξί Νέα Σμύρνη', 'Ταξί Πειραιάς', 'Μεταφορά αεροδρόμιο', 'Επταθέσιο ταξί', 'VIP μεταφορές με οδηγό', 'Αυτοκίνητο με οδηγό', 'Αγκαζέ αυτοκίνητο γάμου', 'Μονοήμερες εκδρομές'],
-           'makesOffer': [{'@type': 'Offer', 'itemOffered': {'@type': 'TaxiService', 'name': n}} for n in ('Ταξί', 'Επταθέσιο έως 6 επιβάτες', 'VIP αυτοκίνητο με οδηγό (Mercedes, BMW, Audi)', 'Αυτοκίνητο με οδηγό για 2, 3 ή 7 ημέρες', 'Αγκαζέ αυτοκίνητο για γάμους και εκδηλώσεις')]}
+           'makesOffer': [{'@type': 'Offer', 'itemOffered': {'@type': 'TaxiService', 'name': n}} for n in ('Ταξί', 'Επταθέσιο έως 6 επιβάτες', 'VIP αυτοκίνητο με οδηγό (Mercedes, BMW, Audi)', 'Ενοικίαση αυτοκινήτου με οδηγό, από 1 ώρα έως 7 ημέρες', 'Αγκαζέ αυτοκίνητο για γάμους και εκδηλώσεις')]}
     site = {'@type': 'WebSite', '@id': '#website', 'name': 'GP & GP', 'alternateName': ['GP&GP Taxi VIP Transfer'], 'inLanguage': ['el', 'en'], 'publisher': {'@id': '#business'}}
     faq = {'@type': 'FAQPage', 'mainEntity': [{'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': a}} for q, a, *_ in FAQ]}
     return json.dumps({'@context': 'https://schema.org', '@graph': [biz, site, faq]}, ensure_ascii=False)
